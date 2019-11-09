@@ -1,16 +1,16 @@
 package asr.proyectoFinal.servlets;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
+//import java.io.BufferedWriter;
+//import java.io.File;
+//import java.io.FileOutputStream;
+//import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+//import java.io.InputStream;
+//import java.io.OutputStream;
 import java.io.PrintWriter;
-import java.nio.Buffer;
-import java.nio.file.Files;
-import java.util.List;
+//import java.nio.Buffer;
+//import java.nio.file.Files;
+//import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,7 +24,7 @@ import asr.proyectoFinal.dominio.Palabra;
 /**
  * Servlet implementation class Controller
  */
-@WebServlet(urlPatterns = {"/listar", "/insertar", "/hablar"})
+@WebServlet(urlPatterns = {"/show", "/add", "/talk"})
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -37,20 +37,20 @@ public class Controller extends HttpServlet {
 		System.out.println(request.getServletPath());
 		switch(request.getServletPath())
 		{
-			case "/listar":
+			case "/show":
 				if(store.getDB() == null)
 					  out.println("No hay DB");
 				else
 					out.println("Palabras en la BD Cloudant:<br />" + store.getAll());
 				break;
 				
-			case "/insertar":
+			case "/add":
 				Palabra palabra = new Palabra();
-				String parametro = request.getParameter("palabra");
+				String parametro = request.getParameter("q");
 
 				if(parametro==null)
 				{
-					out.println("usage: /insertar?palabra=palabra_a_traducir");
+					out.println("Usage: /add?q=palabra_a_traducir");
 				}
 				else
 				{

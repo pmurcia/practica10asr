@@ -30,7 +30,7 @@ import asr.proyectoFinal.dominio.Palabra;
 public class CloudantPalabraStore
 {
 	private Database db = null;
-	private static final String databaseName = "mydb";
+	private static final String databaseName = "testdb";
 	
 	public CloudantPalabraStore(){
 		CloudantClient cloudant = createClient();
