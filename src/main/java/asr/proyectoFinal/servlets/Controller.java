@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import asr.proyectoFinal.dao.CloudantPalabraStore;
 import asr.proyectoFinal.dominio.Palabra;
-import asr.proyectoFinal.services.Traductor;
+import asr.proyectoFinal.dao.Traductor;
 
 /**
  * Servlet implementation class Controller
